@@ -1,0 +1,131 @@
+* {
+  font-family: 'Times New Roman', serif;
+}
+
+body {
+  padding: 50px;
+  align-items: center;
+}
+
+#appLogo {
+   border-radius: 20px;
+   margin: 20px 0 0 450px;
+   width: 300px;
+    box-shadow: 0 0 10px grey;
+}
+
+#head {
+   margin: 20px 0 0 70px;
+   text-align: center;
+}
+
+#sentence {
+  text-align: center;
+  font-weight: 200;
+}
+
+#next {
+  width: 270px;
+  height: 45px;
+  margin: 20px 0 0 20px;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+  font-size: 15px;
+  color: white;
+  font-weight: 500;
+  background: lightblue;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#next:hover {
+  background: #45a049;
+}
+
+
+/*Home page stylings */
+header {
+  margin-bottom: 100px;
+}
+
+.navbar {
+  border: 1px;
+  border-radius: 60px;
+  display: flex;
+  padding: 20px;
+}
+
+.logo {
+  width: 50px;
+  border: 1px solid;
+  border-radius: 25px;
+  margin-left: 50px;
+}
+
+.fa-magnifying-glass{
+  margin-left: 900px;
+  font-size: 30px;
+}
+
+#area {
+  align-items: center;
+}
+
+.city {
+  text-align: center;
+  font-size: 50px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+h1 {
+  text-align: center;
+  font-size: 120px;
+}
+
+.fa-cloud {
+  text-align: center;
+  margin-left: 500px;
+  font-size: 150px;
+}
+
+#weatherConditions {
+  align-items: center;
+}
+
+.weatherContainer {
+display: flex;
+gap: 130px;
+margin-left: 450px;
+}
+
+.weatherCard {
+   gap: 50px;
+}
+
+.fa-cloud-sun,
+.fa-cloud-bolt,
+.fa-cloud-rain {
+  font-size: 45px;
+  padding: 20px;
+}
+
+.card-text {
+  font-size: 20px;
+}
+
+.card-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+
+
+

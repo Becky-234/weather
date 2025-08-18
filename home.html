@@ -1,11 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Home Page</title>
+    <style>
+        body {
+            background: #3C7D87;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <nav class="navbar">
+            <img src="images/app-logo.png" class="logo">
+            <i class="fa-solid fa-magnifying-glass fa-beat"></i>
+        </nav>
+    </header>
+
+    <section id="area" class="happening">
+        <h2 class="city" id="town">Kampala</h2>
+        <h3>Chance of rain: 5%</h3>
+    </section>
+
+    <h1>20°</h1>
+    <i class="fa-solid fa-cloud"></i>
+    <br><br><br>
+    <section id="weatherConditions" class="changes">
+        <div class="weatherContainer">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="weather-card">
+                        <div class="card-body">
+                            <i class="fa-solid fa-cloud-sun"></i>
+                            <p class="card-text">10:00am</p>
+                            <h3 class="card-title">32°</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="weather-card">
+                        <div class="card-body">
+                            <i class="fa-solid fa-cloud-bolt"></i>
+                            <p class="card-text">2:00p.m</p>
+                            <h3 class="card-title">20°</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="weather-card">
+                        <div class="card-body">
+                            <i class="fa-solid fa-cloud-rain"></i>
+                            <p class="card-text">5:00p.m</p>
+                            <h3 class="card-title">19°</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
