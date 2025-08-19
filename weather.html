@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uganda Weather App</title>
+    <style>
+        /* Simple CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;       
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .weather-display {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .city-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .temperature {
+            font-size: 48px;
+            color: #ff6b35;
+            margin: 10px 0;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .detail-box {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌦 Uganda Weather App</h1>
+
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter city (e.g., Mukono, Kampala)" value="Mukono">
+            <button onclick="getWeather()">Get Weather</button>
+        </div>
+
+        <div class="loading" id="loading">
+            Loading weather data...
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="weather-display" id="weatherDisplay">
+            <div class="city-name" id="cityName"></div>
+            <div class="temperature" id="temperature"></div>
+            <div class="description" id="description"></div>
+
+            <div class="details">
+                <div class="detail-box">
+                    <strong>Humidity:</strong><br>
+                    <span id="humidity"></span>
+                </div>
+                <div class="detail-box">
+                    <strong>Wind Speed:</strong><br>
+                    <span id="windSpeed"></span>
+                </div>
+                <div class="detail-box">
+                    <strong>Pressure:</strong><br>
+                    <span id="pressure"></span>
+                </div>
+                <div class="detail-box">
+                    <strong>Feels Like:</strong><br>
+                    <span id="feelsLike"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // STEP 1: Store weather data for Ugandan cities
+        var ugandaWeatherData = {
+            'mukono': {
+                city: 'Mukono',
+                temp: 25,
+                description: 'Partly Cloudy ⛅',
+                humidity: 78,
+                windSpeed: 8,
+                pressure: 1012,
+                feelsLike: 28
+            },
+            'kampala': {
+                city: 'Kampala',
+                temp: 26,
+                description: 'Scattered Clouds 🌤',
+                humidity: 75,
+                windSpeed: 6,
+                pressure: 1010,
+                feelsLike: 30
+            },
+            'entebbe': {
+                city: 'Entebbe',
+                temp: 24,
+                description: 'Light Rain 🌦',
+                humidity: 85,
+                windSpeed: 12,
+                pressure: 1008,
+                feelsLike: 27
+            },
+            'jinja': {
+                city: 'Jinja',
+                temp: 27,
+                description: 'Sunny ☀',
+                humidity: 65,
+                windSpeed: 10,
+                pressure: 1015,
+                feelsLike: 31
+            },
+            'mbarara': {
+                city: 'Mbarara',
+                temp: 23,
+                description: 'Overcast ☁',
+                humidity: 80,
+                windSpeed: 5,
+                pressure: 1018,
+                feelsLike: 26
+            }
+        };
+
+        // STEP 2: Function to hide all display sections
+        function hideAll() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('weatherDisplay').style.display = 'none';
+        }
+
+        // STEP 3: Function to show error messages
+        function showError(message) {
+            hideAll();
+            document.getElementById('error').textContent = message;
+            document.getElementById('error').style.display = 'block';
+        }
+
+        // STEP 4: Function to show loading message
+        function showLoading() {
+            hideAll();
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        // STEP 5: Function to display weather information
+        function displayWeather(weatherData) {
+            hideAll();
+
+            // Update all the weather information on the page
+            document.getElementById('cityName').textContent = weatherData.city;
+            document.getElementById('temperature').textContent = weatherData.temp + '°C';
+            document.getElementById('description').textContent = weatherData.description;
+            document.getElementById('humidity').textContent = weatherData.humidity + '%';
+            document.getElementById('windSpeed').textContent = weatherData.windSpeed + ' km/h';
+            document.getElementById('pressure').textContent = weatherData.pressure + ' hPa';
+            document.getElementById('feelsLike').textContent = weatherData.feelsLike + '°C';
+
+            // Show the weather display
+            document.getElementById('weatherDisplay').style.display = 'block';
+        }
+
+        // STEP 6: Main function to get weather (called when button is clicked)
+        function getWeather() {
+            // Get the city name from input box
+            var cityName = document.getElementById('cityInput').value;
+
+            // Check if user entered something
+            if (cityName === '') {
+                showError('Please enter a city name!');
+                return;
+            }
+
+            // Convert to lowercase for searching
+            var searchCity = cityName.toLowerCase();
+
+            // Show loading message
+            showLoading();
+
+            // Simulate loading time (like real API call)
+            setTimeout(function () {
+                // Check if we have data for this city
+                if (ugandaWeatherData[searchCity]) {
+                    // City found - show weather
+                    displayWeather(ugandaWeatherData[searchCity]);
+                } else {
+                    // City not found - show error
+                    showError('Sorry, weather data not available for ' + cityName + '. Try: Mukono, Kampala, Entebbe, Jinja, or Mbarara');
+                }
+            }, 1000); // Wait 1 second to simulate API call
+        }
+
+        // STEP 7: Allow Enter key to search
+        document.getElementById('cityInput').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                getWeather();
+            }
+        });
+
+        // STEP 8: Load Mukono weather when page opens
+        window.onload = function () {
+            getWeather();
+        };
+    </script>
+</body>
+
+</html>
