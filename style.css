@@ -1,7 +1,9 @@
 * {
-  font-family: 'Times New Roman', serif;
+  margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
-
 body {
   padding: 50px;
   align-items: center;
@@ -50,38 +52,94 @@ body {
 
 
 /*Home page stylings */
-header {
-  margin-bottom: 100px;
-}
+ .card {
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+ }
 
-.navbar {
-  border: 1px;
-  border-radius: 60px;
-  display: flex;
-  padding: 20px;
-}
+ .whole {
+   background: #3C7D87;
+   color: white;
+   border: 1px;
+   border-radius: 30px;
+   border-width: 50px;
+   padding: 20px;
+ }
 
-.logo {
-  width: 50px;
-  border: 1px solid;
-  border-radius: 25px;
-  margin-left: 50px;
-}
-
-.search-container {
-  margin: 20px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.search-input {
+ .search {
   width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-}
+  display: flex;
+  border: 0;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: space-between;
+ }
+ 
+ .search input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 16px;
+  font-size: 18px;
+ }
+
+ .search button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+ }
+
+  .search button img {
+     width: 50px;
+  }
+
+    .happening {
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .happening .city {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-transform: capitalize;
+    }
+  
+    .happening .temperature {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+  
+    .happening .conditions {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+  
+    .happening .humidity {
+      font-size: 14px;
+      color: #ddd;
+    }
 
 .cities-list {
   margin-top: 10px;
@@ -147,6 +205,7 @@ header {
 
 #area {
   text-align: center;
+  margin-bottom: 150px;
 }
 
 #temperature {
@@ -190,22 +249,6 @@ margin-left: 450px;
 
 .weatherCard {
    gap: 50px;
-}
-
-.fa-cloud-sun,
-.fa-cloud-bolt,
-.fa-cloud-rain {
-  font-size: 45px;
-  padding: 20px;
-}
-
-.card-text {
-  font-size: 20px;
-}
-
-.card-title {
-  font-size: 35px;
-  font-weight: bold;
 }
 
 

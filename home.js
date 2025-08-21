@@ -1,3 +1,4 @@
+
 //APIs
 const apiKey = "ad8652e5e547d35b75900eeb0f868daa";
 const city = "Kampala";
@@ -41,37 +42,51 @@ fetch(api)
 
 //SEARCH
 // Add this to your existing code
-const searchInput = document.getElementById('city-search');
-const citiesList = document.getElementById('cities-list');
+const searchInput = document.getElementById('citySearch');
+const citiesList = document.getElementById('citiesList');
 let cities = [];
 
-// Handle Enter key press
+ // Handle Enter key press
 searchInput.addEventListener('keypress', async (e) => {
-    if (e.key === 'Enter' && e.target.value.trim()) {
-        const newCity = e.target.value.trim();
-        if (!cities.includes(newCity)) {
-            try {
-                // Validate city exists by making API call
-                const validationUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=${apiKey}`;
-                const response = await fetch(validationUrl);
-                
-                if (!response.ok) {
-                    throw new Error(`City "${newCity}" not found`);
-                }
-                
-                cities.push(newCity);
-                updateCitiesList();
-                e.target.value = '';
-                await getWeatherForCity(newCity);
-            } catch (error) {
-                console.error('Error:', error);
-                alert(`Could not add city: ${error.message}`);
-            }
-        } else {
-            alert('City already exists in the list');
-        }
-    }
+  if (e.key === 'Enter' && e.target.value.trim()) {
+    e.preventDefault();
+    handleSearch(e.target.value.trim());
+  }
 });
+
+// Handle button click
+document.getElementById('searchBtn').addEventListener('click', () => {
+  if (searchInput.value.trim()) {
+    handleSearch(searchInput.value.trim());
+  }
+});
+
+// Extracted search logic into a function
+async function handleSearch(newCity) {
+  newCity = newCity.toLowerCase(); // normalize
+
+  if (!cities.includes(newCity)) {
+    try {
+      const validationUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&appid=${apiKey}`;
+      const response = await fetch(validationUrl);
+
+      if (!response.ok) {
+        throw new Error(`City "${newCity}" not found`);
+      }
+
+      cities.push(newCity);
+      updateCitiesList();
+      searchInput.value = '';
+      await getWeatherForCity(newCity);
+
+    } catch (error) {
+      console.error('Error:', error);
+      alert(`Could not add city: ${error.message}`);
+    }
+  } else {
+    alert('City already exists in the list');
+  }
+}
 
 // Remove city handler
 function removeCity(cityName) {
