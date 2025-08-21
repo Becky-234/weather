@@ -110,6 +110,39 @@ header {
 .city-item button:hover {
   background: #ddd;
 }
+
+.weather-container {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.weather-container h2 {
+  margin: 0 0 10px 0;
+}
+
+.weather-container img {
+  width: 64px;
+  height: 64px;
+  margin: 10px 0;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.temperature {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.conditions {
+  font-style: italic;
+}
  
 
 #area {
