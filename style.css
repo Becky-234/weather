@@ -68,13 +68,64 @@ header {
   margin-left: 50px;
 }
 
-.fa-magnifying-glass{
-  margin-left: 900px;
-  font-size: 30px;
+.search-container {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-#area {
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.cities-list {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.city-item {
+  background: #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: flex;
   align-items: center;
+  gap: 8px;
+}
+
+.city-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.city-item button:hover {
+  background: #ddd;
+}
+ 
+
+#area {
+  text-align: center;
+}
+
+#temperature {
+   font-size: 50px;
+}
+
+#conditions {
+  font-size: 35px;
+}
+
+#humididty {
+  font-size: 30px;
 }
 
 .city {
@@ -93,11 +144,6 @@ h1 {
   font-size: 120px;
 }
 
-.fa-cloud {
-  text-align: center;
-  margin-left: 500px;
-  font-size: 150px;
-}
 
 #weatherConditions {
   align-items: center;

@@ -23,18 +23,22 @@
     <header>
         <nav class="navbar">
             <img src="images/app-logo.png" class="logo">
-            <i class="fa-solid fa-magnifying-glass fa-beat"></i>
+            <div class="search-container">
+                <input type="text" id="city-search" placeholder="Enter city name (press Enter to add)" class="search-input">
+                <div id="cities-list" class="cities-list"></div>
+            </div>
         </nav>
     </header>
 
     <section id="area" class="happening">
         <h2 class="city" id="town">Kampala</h2>
-        <h3>Chance of rain: 5%</h3>
+        <img id="weatherIcon" src="https://openweathermap.org/img/wn/10d@4x.png" alt="Weather Icon">
+        <div id="temperature"></div>
+        <div id="conditions"></div>
+        <div id="humidity"></div>
     </section>
-
-    <h1>20°</h1>
-    <i class="fa-solid fa-cloud"></i>
     <br><br><br>
+
     <section id="weatherConditions" class="changes">
         <div class="weatherContainer">
             <div class="row">
