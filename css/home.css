@@ -29,6 +29,8 @@ body {
     border-radius: 10px;
     border-width: 15px;
     padding: 5px;
+    width: 600px;
+    margin-left: 270px;
 }
 
 .search {
