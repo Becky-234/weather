@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Becky-234/weather/issues"
   },
-  "homepage": "https://github.com/Becky-234/weather#readme"
+  "homepage": "https://github.com/Becky-234/weather#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
