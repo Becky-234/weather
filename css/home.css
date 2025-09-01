@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 50px;
+    align-items: center;
+}
+
+/*Home page stylings */
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+
+.whole {
+    background: #3C7D87;
+    color: white;
+    border: 1px;
+    border-radius: 10px;
+    border-width: 15px;
+    padding: 5px;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    border: 0;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.search button img {
+    width: 50px;
+}
+
+.happening {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.happening .city {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.happening .temperature {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.happening .conditions {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.happening .humidity {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.cities-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.city-item {
+    background: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.city-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.city-item button:hover {
+    background: #ddd;
+}
+
+.weather-container {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.weather-container h2 {
+    margin: 0 0 10px 0;
+}
+
+.weather-container img {
+    width: 64px;
+    height: 64px;
+    margin: 10px 0;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.temperature {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.conditions {
+    font-style: italic;
+}
+
+
+#area {
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+#temperature {
+    font-size: 50px;
+}
+
+#conditions {
+    font-size: 35px;
+}
+
+#humididty {
+    font-size: 30px;
+}
+
+.city {
+    text-align: center;
+    font-size: 50px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 100;
+}
+
+h1 {
+    text-align: center;
+    font-size: 120px;
+}
+
+
+#weatherConditions {
+    align-items: center;
+}
+
+.weatherContainer {
+    display: flex;
+    gap: 130px;
+    margin-left: 450px;
+}
+
+.weatherCard {
+    gap: 50px;
+}
