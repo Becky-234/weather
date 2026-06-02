@@ -14,5 +14,23 @@ app.get('/home', (req, res) => {
 });
 
 
+app.get('/start', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.post('/start', (req, res) => {
+    console.log(req.body);
+});
+
+app.get('/findout', (req, res) => {
+    res.sendFile(__dirname + '/home.html');
+});
+
+app.post('/findout', (req, res) => {
+    console.log(req.body);
+});
+
+
+
 //last line in this file
 app.listen(port, () => console.log(`Listening on port ${port}`));

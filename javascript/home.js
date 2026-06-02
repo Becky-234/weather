@@ -17,7 +17,7 @@ const defaultCity = "Kampala";
           throw new Error("Invalid response format");
         }
 
-        const temp = data.main.temp;
+        const temp = Math.round(data.main.temp);
         const humidity = data.main.humidity;
         const conditions = data.weather[0].description;
         const iconCode = data.weather[0].icon;
