@@ -1,53 +1,404 @@
+/* ===== index.css - Modern Weather Landing Page Styles ===== */
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
 body {
-     background: #3C7D87;
-     color: white;
- }
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0b2b2f 0%, #1f5e68 100%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
 
+/* animated weather background particles (subtle) */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 40%, rgba(255,255,240,0.08) 2%, transparent 2.5%),
+                      radial-gradient(circle at 80% 70%, rgba(200,230,255,0.1) 1.8%, transparent 2%);
+    background-size: 55px 55px, 70px 70px;
+    pointer-events: none;
+    z-index: 0;
+}
 
- #appLogo {
-     border-radius: 20px;
-     margin: 20px 0 0 450px;
-     width: 300px;
-     box-shadow: 0 0 10px grey;
- }
+/* main container with glassmorphism + modern layout */
+.landing-container {
+    max-width: 1300px;
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+}
 
- .welcome {
-     font-size: 45px;
- }
+/* left content area: text + CTA */
+.hero-content {
+    flex: 1.2;
+    min-width: 280px;
+    padding: 1rem;
+}
 
- #head {
-     margin: 20px 0 0 70px;
-     text-align: center;
- }
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,245,0.15);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 1.2rem;
+    border-radius: 60px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin-bottom: 1.8rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    width: fit-content;
+}
 
- #sentence {
-     text-align: center;
-     font-weight: 200;
- }
+.badge i {
+    font-size: 0.9rem;
+    color: #FFE6A7;
+}
 
- #next {
-     width: 270px;
-     height: 45px;
-     margin: 20px 0 0 20px;
-     border: none;
-     outline: none;
-     border-radius: 40px;
-     box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
-     font-size: 15px;
-     color: white;
-     font-weight: 500;
-     background: lightblue;
-     cursor: pointer;
-     transition: background 0.3s;
- }
+.hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(120deg, #ffffff, #d9f0f5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+}
 
- #next:hover {
-     background: #45a049;
- }
+.highlight {
+    background: linear-gradient(145deg, #FFE6B3, #FFC978);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 1.5rem 0 2rem;
+    max-width: 550px;
+    border-left: 3px solid #FFD966;
+    padding-left: 1.2rem;
+}
+
+/* feature mini-list */
+.feature-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0 2.2rem;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
+    border-radius: 60px;
+    padding: 0.5rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,210,0.2);
+    transition: all 0.2s ease;
+}
+
+.feature-item i {
+    color: #FFDD88;
+    font-size: 1rem;
+}
+
+.feature-item:hover {
+    background: rgba(255, 221, 136, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(255, 221, 136, 0.5);
+}
+
+/* modern CTA button */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(105deg, #F5B042 0%, #FF8C42 100%);
+    padding: 1rem 2.2rem;
+    border-radius: 60px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 12px 25px -8px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,200,0.3);
+    margin-bottom: 1.8rem;
+}
+
+.cta-button i {
+    transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background: linear-gradient(105deg, #FFA42E, #FF7A2C);
+    transform: scale(1.03);
+    box-shadow: 0 18px 30px -10px rgba(0,0,0,0.35);
+}
+
+.cta-button:hover i {
+    transform: translateX(5px);
+}
+
+.trust-signal {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.2);
+    width: fit-content;
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+}
+
+.trust-signal i {
+    font-size: 0.8rem;
+}
+
+/* RIGHT SIDE: logo card & animated weather orbs */
+.hero-visual {
+    flex: 0.9;
+    min-width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    border-radius: 48px;
+    padding: 2rem 1.8rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 380px;
+}
+
+.logo-card:hover {
+    transform: translateY(-6px);
+}
+
+.logo-glow {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 40%;
+    background: radial-gradient(circle, rgba(255,220,100,0.3) 0%, rgba(255,200,80,0) 80%);
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+#appLogo {
+    width: 200px;
+    max-width: 80%;
+    border-radius: 28px;
+    margin-bottom: 1rem;
+    box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    background: rgba(255,255,245,0.1);
+    padding: 0.2rem;
+}
+
+.weather-mini-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 80px;
+    padding: 0.6rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+}
+
+.weather-mini-preview i {
+    font-size: 1.2rem;
+    color: #FFE0A3;
+}
+
+/* floating clouds (decorative) */
+.floating-cloud {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 255, 245, 0.2);
+    z-index: 1;
+    pointer-events: none;
+    animation: floatCloud 14s infinite alternate ease-in-out;
+}
+
+.cloud-1 {
+    top: 5%;
+    left: -10%;
+    font-size: 3.5rem;
+    animation-duration: 18s;
+    opacity: 0.5;
+}
+
+.cloud-2 {
+    bottom: 15%;
+    right: -5%;
+    font-size: 2.8rem;
+    animation-duration: 22s;
+    animation-delay: -3s;
+    opacity: 0.4;
+}
+
+.cloud-3 {
+    top: 40%;
+    right: 20%;
+    font-size: 2rem;
+    animation-duration: 16s;
+    animation-delay: -7s;
+    opacity: 0.35;
+}
+
+@keyframes floatCloud {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+    100% {
+        transform: translateY(-25px) translateX(15px);
+    }
+}
+
+/* design credit (minimal) */
+.design-credit {
+    position: fixed;
+    bottom: 18px;
+    right: 20px;
+    font-size: 0.7rem;
+    background: rgba(0,0,0,0.3);
+    padding: 5px 12px;
+    border-radius: 60px;
+    backdrop-filter: blur(4px);
+    color: rgba(255,255,225,0.7);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.design-credit i {
+    font-size: 0.65rem;
+    margin-right: 4px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 900px) {
+    .landing-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .description {
+        border-left: none;
+        padding-left: 0;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .badge {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .feature-grid {
+        justify-content: center;
+    }
+    
+    .trust-signal {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-visual {
+        order: -1;
+    }
+    
+    .logo-card {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .floating-cloud {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .landing-container {
+        width: 95%;
+        margin: 1rem auto;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    .feature-item {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+    }
+    
+    .design-credit {
+        display: none;
+    }
+}
